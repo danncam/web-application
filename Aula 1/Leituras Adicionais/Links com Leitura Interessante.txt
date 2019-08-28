@@ -1,0 +1,16 @@
+Site da W3C Schools - Ótimo local de aprendizado
+
+www.w3c.schools.com 
+
+
+
+Para saber se um site está dentro dos padrões definidos pela W3C basta verificar no site 
+
+http://validator.w3.org/
+
+
+
+Sites interessantes sobre combinações de cores:
+
+http://colorschemedesigner.com/
+https://kuler.adobe.com/create/color-wheel/
