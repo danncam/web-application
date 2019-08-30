@@ -10,30 +10,79 @@
         <p>A estrutura de um documento, ou seja, a estrutura semântica do que está entre &lt;body&gt; e &lt;&sol;body&gt;, é fundamental para a apresentação da página ao usuário. O HTML4 usa a noção de seções e subseções de um documento para descrever sua estrutura. Uma seção é definida por um Elemento HTML de Divisão (&lt;div&gt;) com Elementos HTML de Cabeçalho (&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, ou &lt;h6&gt;) dentro de si, definindo seu título. As relações desses elementos levam à estrutura do documento.</p>
         <hgroup>
         <h3>Elementos Estruturais</h3>
-        <h4>Novos elementos</h4>
+        <h4>Novos elementos no HTML5</h4>
         </hgroup>
-        <p>Os seguintes elementos foram introduzidos para melhor estrutura:
+        <p>Os seguintes elementos foram introduzidos para melhor estrutura:</p>
+        <ul>
+            <li><i>section</i> representa uma seção genérica de documento ou aplicativo. Deve ser usado junto com os elementos h1, h2, h3, h4, h5 e h6 para indicar a estrutura do documento.</li>
+            <li><i>article</i> representa uma parte independente do conteúdo de um documento, como uma entrada de blog ou artigo de jornal.</li>
+            <li><i>main</i> representa o conteúdo principal do corpo de um documento ou aplicativo.</li>
+            <li><i>aside</i> representa um conteúdo que está apenas ligeiramente relacionado ao restante da página.</li>
+            <li><i>header</i> representa um grupo de auxílios introdutórios ou de navegação.</li>
+            <li><i>footer</i> representa um rodapé de uma seção e pode conter informações sobre o autor, informações sobre direitos autorais etc.</li>
+            <li><i>nav</i> representa uma seção do documento destinado à navegação.</li>
+            <li><i>figure</i> representa uma parte do conteúdo do fluxo independente, geralmente referenciado como uma única unidade do fluxo principal do documento.</li>
+            <pre>
+            &lt;figure&gt;
+                &lt;video src="example.webm" controls&lt;&sol;video&gt;
+                &lt;figcaption&lt;Example&lt;&sol;figcaption&gt;
+            &lt;&sol;figure&gt;
+            </pre>
+            <li><i>figcaption</i> pode ser usado como legenda (é opcional).</li>
+            <li><i>template</i> pode ser usado para declarar fragmentos de HTML que podem ser clonados e inseridos no documento por script.</li>
+        </ul>
+        <h3>Há também muitos outros elementos:</h3>
+        <ul>
+            <li><i>video</i> e <i>audio</i> para conteúdo multimídia. Ambos fornecem uma API para que os desenvolvedores da Web de aplicativos possam criar scripts para sua própria interface de usuário. a tag <i>source</i> é usada com estes elementos se existem diferentes tipos de streaming disponíveis.</li>
+            <li><i>track</i> providencia elementos de texto no vídeo como captions e legendas.</li>
+            <li><i>embed</i> é usada para conteúdo de plug-ins.</li>
+            <li><i>mark</i> representa uma sequência de texto em um documento marcado ou destacado para fins de referência, devido à sua relevância em outro contexto.</li>
+            <li><i>task</i> representa a conclusão de uma tarefa, como o download ou a execução de uma série de operações</li>
+            <li><i>meter</i> representa uma medida, como o uso do disco.</li>
+            <li><i>time</i> representa uma data e/ou hora.</li>
+            <li><i>ruby</i>, <i>rt</i> e <i>rp</i> permitem marcar anotações em ruby.</li>
+            <li><i>bdi</i> representa um espaço de texto que deve ser isolado do ambiente ao redor para fins de formatação de texto bidirecional.</li>
+            <li><i>wbr</i> representa uma oportunidade de quebra de linha.</li>
+            <li><i>canvas</i> é usada para renderizar gráficos dinâmicos de bitmap em tempo real, como gráficos ou jogos.</li>
+            <li><i>datalist</i> juntamente com o novo atributo <i>list</i> para <i>input</i>, pode ser usado para criar caixas de combinação:</li>
+            <pre>
+            &lt;input <strong>list="browsers"</strong>&gt;
+            &lt;datalist <strong>id="browsers"</strong>&gt;
+                &lt;option value="Safari"&gt;
+                &lt;option value="Internet Explorer"&gt;
+                &lt;option value="Opera"&gt;
+                &lt;option value="Firefox"&gt;
+            &lt;&sol;datalist&gt;
+            </pre>
+            <li><i>keygen</i> representa o controle para a geração de pares de chaves.</li>
+            <li><i>output</i> representa algum tipo de output, como em um cálculo feito por meio de script.</li>
+            <li>Os atributos do tipo <i>input</i> agora possuem os seguintes valores:</li>
             <ul>
-                <li><i>section</i> representa uma seção genérica de documento ou aplicativo. Deve ser usado junto com os elementos h1, h2, h3, h4, h5 e h6 para indicar a estrutura do documento.</li>
-                <li><i>article</i> representa uma parte independente do conteúdo de um documento, como uma entrada de blog ou artigo de jornal.</li>
-                <li><i>main</i> representa o conteúdo principal do corpo de um documento ou aplicativo.</li>
-                <li><i>aside</i> representa um conteúdo que está apenas ligeiramente relacionado ao restante da página.</li>
-                <li><i>header</i> representa um grupo de auxílios introdutórios ou de navegação.</li>
-                <li><i>footer</i> representa um rodapé de uma seção e pode conter informações sobre o autor, informações sobre direitos autorais etc.</li>
-                <li><i>nav</i> representa uma seção do documento destinado à navegação.</li>
-                <li><i>figure</i> representa uma parte do conteúdo do fluxo independente, geralmente referenciado como uma única unidade do fluxo principal do documento.</li>
-                <pre>
-                <figure>
-                    <video src="example.webm" controls></video>
-                    <figcaption>Example</figcaption>
-                </figure>
-                </pre>
-                <li><i>figcaption</i> pode ser usado como legenda (é opcional).</li>
-                <li><i>template</i> pode ser usado para declarar fragmentos de HTML que podem ser clonados e inseridos no documento por script.</li>
+                <li>tel</li>
+                <li>search</li>
+                <li>url</li>
+                <li>email</li>
+                <li>date</li>
+                <li>time</li>
+                <li>number</li>
+                <li>range</li>
+                <li>color</li>
             </ul>
+        </ul>
+        <p>A idéia desses novos tipos é que o agente do usuário possa fornecer a interface do usuário, como um selecionador de data do calendário ou a integração com o catálogo de endereços do usuário, e enviar um formato definido ao servidor. Isso proporciona ao usuário uma experiência melhor, pois sua entrada é verificada antes de enviá-la ao servidor, o que significa que há menos tempo para aguardar feedback.</p>
+        <h4>Novos atributos</h4>
+        <p>Vários atributos foram introduzidos em vários elementos que já faziam parte do HTML4:</p>
+        <ul>
+        <li>O elemento <i>area</i>, para consistência com os elementos <i>a</i> e <i>link</i>, agora também possui os atributos <i>hreflang</i>, <i>type</i> e <i>rel</i>.</li>
+        <li>O elemento <i>base</i> agora também pode ter um atributo <i>target</i>, principalmente para consistência com o elemento <i>a</i>. (Isso já é amplamente suportado.)</li>
+        <li>O elemento <i>meta</i> agora possui um atributo <i>charset</i>, já que isso já é amplamente suportado e fornece uma boa maneira de especificar a codificação de caracteres para o documento.</li>
+        <li>Um novo atributo <i>autofocus</i> pode ser especificado nos elementos <i>input</i> (exceto quando o atributo <i>type</i> é <i>hidden</i>), <i>select</i>, <i>textarea</i> e <i>button</i>. Ele fornece uma maneira declarativa de focar um controle de formulário durante o carregamento da página. O uso desse recurso deve aprimorar a experiência do usuário, em comparação com o foco no elemento com o script, pois o usuário pode desativá-lo se não gostar, por exemplo.</li>
+        <li>Um novo atributo <i>placeholder</i> pode ser especificado nos elementos <i>input</i> e <i>textarea</i>. Representa uma dica destinada a auxiliar o usuário na entrada de dados.</li>
+            <pre>
+            &lt;input type=search name=q placeholder="Enter search phrase..."&gt; &lt;button&lt;Search&lt;&sol;button&gt;
+            &lt;label&gt;Email &lt;input type=email name=email placeholder="john@example.com"&gt;&lt;&sol;label&gt;
+            </pre>
         
-        Acesse em https://www.w3.org/TR/html5-diff/
-        </p>
-    
+        </ul>
 	</body>
-</html>
+    </html>
