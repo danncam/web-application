@@ -25,15 +25,33 @@
             <section class="curriculumcontainer">
                 
                 <!--INFORMAÇÕES PESSOAIS-->
+                <form action="submit.html" method="post">
                 <div class="personalinfo">
                     <h3>Informações Pessoais&nbsp;<span class="block_label">(obrigatório)</span></h3>
-
-                <form action="submit.html" method="post">
-                    <label for="persinfo">Nome Completo&nbsp;</label>
-                    <input name="nome" id="persinfo" type="text" id="largeinfo">
+                </div>
+                    
+                    <div class="simpleform">
+                        <label for="name">Nome Completo&nbsp;</label>
+                        <span><input placeholder="campo obrigatório"id="name" name="nome" id="persinfo" type="text" required></span>
+                    </div>
+                    
+                    <div class="simpleform">
+                        <label for="bdate">Data de nascimento&nbsp;</label>
+                        <span><input placeholder="dd/mm/aaaa" id="bdate" type="text" id="largeinfo" required></span>
+                    </div>
+                    
+                    <div class="simpleform">
+                        <label for="inputgroup">Gênero&nbsp;</label>
+                        <input id="inputgroup" type="radio" name="gender" value="male"> Masculino
+                        <input id="inputgroup" type="radio" name="gender" value="female"> Feminimo
+                        <input id="inputgroup" type="radio" name="gender" value="other"> Outro
+                    </div>
+                    
+                    
+                    <input type="submit" value="Enviar" id="submit" name="Enviar">
                 </form>
 
-                </div>
+                
 
                 <!--ENDEREÇO-->
                 <div class="address">

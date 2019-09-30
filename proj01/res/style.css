@@ -93,18 +93,10 @@ h3 span {
     width: 64%;
 }
 
-section {
-    background-color: #FFF;
-    margin-top: 2px;
-    text-align:left;
-}
-label {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 12px;
-    color: #333;
-    float:left;
-}
-input {
-    width: 100%;
-    border: 1px solid #ccc;
+.simpleform{
+    font-family: sans-serif;
+    font-size: 15px;
+    width: auto;
+    height: auto;
+    color: #474747;
 }
