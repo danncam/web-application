@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+}
+
+#container{
+	width:1024px;
+    height: auto;
+    background-color: deepskyblue;
+    margin: auto;
+    padding: 10px;
+}
+
+#topo {
+    width: 1004px;
+    height: 20px;
+    background-color: red;
+    padding: 10px;
+}
+
+#logo {
+    width: 30px;
+    height: 20px;
+    background-color: yellow;
+    float: left;
+}
+
+#menu {
+    width: 120px;
+    height: 20px;
+    background-color: darkmagenta;
+    float: right;
+}
+
+#banner {
+    width: 1024px;
+    height: 200px;
+    background-color: blue;
+}
+
+#conteudo {
+    margin-top: 10px;
+    width: 1024px;
+    min-height: 500px;
+    background-color: green;
+}
+
+.box {
+    width: 320px;
+    height: 200px;
+    background-color: white;
+    margin: 10px;
+    float: left;
+}
+
+#rodape {
+    width: 1024px;
+    height: 50px;
+    margin-top: 10px;
+    background-color: yellow;
+}
