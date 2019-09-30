@@ -67,3 +67,7 @@ p {
     height: 32px;
     float: left;
 }
+
+input {
+    width: 128px;
+}
