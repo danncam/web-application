@@ -93,10 +93,25 @@ h3 span {
     width: 64%;
 }
 
-.simpleform{
+.simpleform {
     font-family: sans-serif;
-    font-size: 15px;
-    width: auto;
-    height: auto;
+    font-size: 12px;
+    padding: 8px;
     color: #474747;
+}
+
+.simpleform label{
+    font-weight: bold;
+}
+
+#name{
+    width: 80%;
+}
+
+input[type=submit] {
+	width:100px;
+	color:#FFF;
+	background:#B1B3B3;
+	border:1px solid #333;
+	cursor:pointer;
 }
