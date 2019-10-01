@@ -35,11 +35,11 @@ input {
 }
 
 input.email {
-	background-image: url(../imagens/icone-usuario.png);
+	background-image: url(icone-usuario.png);
 }
 
 input.senha {
-	background-image: url(../imagens/icone-cadeado.png);
+	background-image: url(icone-cadeado.png);
 }
 
 input.submit {
