@@ -57,8 +57,8 @@ article {
 }
 
 h1 {
-    font-size: 32px;
-    letter-spacing: -1px;
+    font-size: 38px;
+    letter-spacing: -2px;
 }
 
 h5, h6 {
@@ -67,7 +67,7 @@ h5, h6 {
 }
 
 p {
-    color: #2d2d2d;
+    color: #2D2D2D;
     padding-top: 16px;
     padding-bottom: 16px;
     margin-top: 16px;
@@ -113,18 +113,7 @@ p:hover {
     margin-left: 256px;
 }
 
-h3 {
-    font-family: Trebuchet MS,sans-serif;
-    margin: 16px 0;
-    font-size: 16px;
-    margin-right: auto;
-    font-weight: 600;
-    color: #333;
-    padding-right: 10px;
-    background-color: #fff;
-}
-
-h3 span {
+.simpleform span {
     font-weight: 400;
     font-size: 12px;
     color: #888;
@@ -141,7 +130,7 @@ h3 span {
     font-weight: bold;
 }
 
-form:hover {
+fieldset:hover {
     background-color: #eff0f1;
 }
 

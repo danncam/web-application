@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <link href="res/style.css" rel="stylesheet" type="text/css" media="all">
-        <script src="res/script.js"></script>
+        <script src="res/script.js" type="text/javascript"></script>
         <title>Siga Carreira</title>
     </head>
 
@@ -28,13 +28,12 @@
         </nav>
 
         <section class="curriculumcontainer">
-            
-        <form action="submit.html" method="post">
-            
-        <!--INFORMAÇÕES PESSOAIS-->
 
-        <fieldset>
-            <legend>Informações Pessoais&nbsp;</legend>
+        <!--INFORMAÇÕES PESSOAIS-->
+        <form action="submit.html" method="post">
+            <div class="personalinfo">
+                <h3>Informações Pessoais&nbsp;<span class="block_label">(obrigatório)</span></h3>
+            </div>
 
             <!--Nome completo-->
             <div class="simpleform">
@@ -69,11 +68,13 @@
                 </select>
             </div>
 
-            <!--Filhos-->                    
+            <!--Dependentes-->                    
             <div class="simpleform">
-                <label for="inputgroup">Possui filhos?&nbsp;</label>
+                <label for="inputgroup">Possui dependentes?&nbsp;</label>
                 <input id="inputgroup" type="radio" name="children" value="0"> Não
                 <input id="inputgroup" type="radio" name="children" value="1"> Sim
+                <label for="inputnumber">&nbsp;Quantos?&nbsp;</label>
+                <input id="inputnumber" type="number" name"qtchld" min="1" max="10" value="1">
             </div>
 
             <!--Nacionalidade-->
@@ -329,13 +330,14 @@
                 <span><input placeholder="CPF" id="simpleform" name="document" type="text" required>&nbsp;<a href="#">Estrangeiro</a></span>
             </div>
 
-        </fieldset>
+            <input type="submit" value="Enviar" id="submit" name="Enviar">
+        </form>
 
         <!--ENDEREÇO-->
-
-        <fieldset>
-
-            <legend>Endereço atual&nbsp;</legend>
+        <form action="submit.html" method="post">
+            <div class="address">
+                <h3>Endereço atual</h3>
+            </div>
 
             <!--País-->
             <div class="simpleform">
@@ -736,38 +738,43 @@
                 <input id="streetname" placeholder="--" type="text">
             </div>
 
-        </fieldset>
-
+            <input type="submit" value="Enviar" id="submit" name="Enviar">
+            
+        </form>
 
         <!--CONTATO-->
+        <form action="submit.html" method="post">
+            <div class="contactinfo">
+                <h3>Informações de contato&nbsp;<span class="block_label">(Obrigatório)</span></h3>
 
-        <fieldset>
-            <legend>Informações de contato&nbsp;</legend>
+                <!--Email-->
+                <div class="simpleform">
+                    <label for="email">E-mail&nbsp;</label>
+                    <input id="email" placeholder="--" type="email" required>
+                </div>
 
-            <!--Email-->
-            <div class="simpleform">
-                <label for="email">E-mail&nbsp;</label>
-                <input id="email" placeholder="--" type="text" required>
+                <!--Celular-->
+                <div class="simpleform">
+                    <label for="cell">Celular&nbsp;</label>
+                    <input id="cell" placeholder="(xx) x-xxxx-xxxx" type="tel">
+                </div>
+
+                <!--Telefone-->
+                <div class="simpleform">
+                    <label for="tel">Telefone&nbsp;</label>
+                    <input id="tel" placeholder="(xx) xxxx-xxxx" type="tel">
+                </div>
+
+                <input type="submit" value="Enviar" id="submit" name="Enviar">
+
             </div>
-
-            <!--Celular-->
-            <div class="simpleform">
-                <label for="cell">Celular&nbsp;</label>
-                <input id="cell" placeholder="(xx) x-xxxx-xxxx" type="text">
-            </div>
-
-            <!--Telefone-->
-            <div class="simpleform">
-                <label for="tel">Telefone&nbsp;</label>
-                <input id="tel" placeholder="(xx) xxxx-xxxx" type="text">
-            </div>
-
-        </fieldset>
+        </form>
 
         <!--REDES SOCIAIS-->
-        <fieldset>
-            <legend>Redes sociais</legend>
-                    
+        <form action="submit.html" method="post">
+            <div class="socialnetwork">
+                <h3>Redes sociais</h3>
+
                 <!--LinkedIn-->
                 <div class="simpleform">
                     <label for="linkedin">LinkedIn&nbsp;</label>
@@ -776,91 +783,81 @@
                 <!--Site-->
                 <div class="simpleform">
                     <label for="site">Site Pessoal / Blog&nbsp;</label>
-                    <input id="site" type="text"></div>
+                    <input id="site" type="url"></div>
 
                 <!--Outro-->
                 <div class="simpleform">
                     <label for="other">Outro Site de Relacionamento&nbsp;</label>
                     <input id="other" type="text"></div>
 
-        </fieldset>
+                <input type="submit" value="Enviar" id="submit" name="Enviar">
+            </div>
+        </form>
 
         <!--DEFICIÊNCIA-->
-        <fieldset>
-            <legend>Deficiências</legend>    
+        <form action="submit.html" method="post">
+            <div class="deficiency">
+            <h3>Deficiências</h3>
                 <div class="simpleform">
-                    <label class="control-label">Você possui alguma deficiência?&nbsp;</label>
-                    <input id="inputgroup" type="radio" name="deficiency" value="0"> Não
-                    <input id="inputgroup" type="radio" name="deficiency" value="1"> Sim
-                    <div class="checkbox-group">
-                        <div class="simple-form__control-group">
-                        <label class="control-label" for="deficiencias_possui_deficiencia_auditiva">
-                        <input name="deficiencias[possui_deficiencia_auditiva]" id="deficiencias_possui_deficiencia_auditiva" type="checkbox" value="false">Auditiva</label></div>
+                <label class="control-label">Você possui alguma deficiência?&nbsp;</label>
+                <input id="inputgroup" type="radio" name="deficiency" value="0"> Não
+                <input id="inputgroup" type="radio" name="deficiency" value="1"> Sim
+                <div class="checkbox-group">
                     <div class="simple-form__control-group">
-                        <label class="control-label" for="deficiencias_possui_deficiencia_fala">
-                        <input name="deficiencias[possui_deficiencia_fala]" id="deficiencias_possui_deficiencia_fala" type="checkbox" value="false">Fala</label>
-                    </div>
-                    <div class="simple-form__control-group">
-                        <label class="control-label" for="deficiencias_possui_deficiencia_fisica">
-                        <input name="deficiencias[possui_deficiencia_fisica]" id="deficiencias_possui_deficiencia_fisica" type="checkbox" value="false">Física</label>
-                    </div>
-                    <div class="simple-form__control-group">
-                        <label class="control-label" for="deficiencias_possui_deficiencia_mental">
-                        <input name="deficiencias[possui_deficiencia_mental]" id="deficiencias_possui_deficiencia_mental" type="checkbox" value="false">Intelectual/Mental</label>
-                    </div>
-                    <div class="simple-form__control-group">
-                        <label class="control-label" for="deficiencias_possui_deficiencia_visual">
-                        <input name="deficiencias[possui_deficiencia_visual]" id="deficiencias_possui_deficiencia_visual" type="checkbox" value="false">Visual</label>
-                    </div>
+                    <label class="control-label" for="deficiencias_possui_deficiencia_auditiva">
+                    <input name="deficiencias[possui_deficiencia_auditiva]" id="deficiencias_possui_deficiencia_auditiva" type="checkbox" value="false">Auditiva</label></div>
+                <div class="simple-form__control-group">
+                    <label class="control-label" for="deficiencias_possui_deficiencia_fala">
+                    <input name="deficiencias[possui_deficiencia_fala]" id="deficiencias_possui_deficiencia_fala" type="checkbox" value="false">Fala</label>
+                </div>
+                <div class="simple-form__control-group">
+                    <label class="control-label" for="deficiencias_possui_deficiencia_fisica">
+                    <input name="deficiencias[possui_deficiencia_fisica]" id="deficiencias_possui_deficiencia_fisica" type="checkbox" value="false">Física</label>
+                </div>
+                <div class="simple-form__control-group">
+                    <label class="control-label" for="deficiencias_possui_deficiencia_mental">
+                    <input name="deficiencias[possui_deficiencia_mental]" id="deficiencias_possui_deficiencia_mental" type="checkbox" value="false">Intelectual/Mental</label>
+                </div>
+                <div class="simple-form__control-group">
+                    <label class="control-label" for="deficiencias_possui_deficiencia_visual">
+                    <input name="deficiencias[possui_deficiencia_visual]" id="deficiencias_possui_deficiencia_visual" type="checkbox" value="false">Visual</label>
+                </div>
                 </div>
             </div>
-        </fieldset>
+            </div>
+        </form>
 
         <!--OBJETIVOS-->
-        <fieldset>
-            <legend>Objetivos</legend>
-            <div class="objectives">
-                <p><textarea name="item3" cols="50" rows="3"></textarea></p>
-            </div>
-        </fieldset>
-            
+        <div class="objectives">
+            <h3>Objetivos</h3>
+            <p><textarea name="item3" cols="50" rows="3"></textarea></p>
+        </div>
+
         <!--FORMAÇÃO ACADÊMICA-->
-        <fieldset>
-            <legend>Formação Acadêmica e complementar</legend>
-            <div class="academic">
-                
-            </div>
-        </fieldset>
+        <div class="academic">
+            <h3>Formação Acadêmica e complementar</h3>
+        </div>
 
         <!--IDIOMAS-->
-        <fieldset>
-            <legend>Idiomas</legend>
-            <div class="languages">
-                
-            </div>
-        </fieldset>
-            
+        <div class="languages">
+            <h3>Idiomas</h3>
+        </div>
+
         <!--EXERIÊNCIA PROFISSIONAL-->
-        <fieldset>
-            <legend>Resumo Profissional</legend>
-            <div class="professionalhistory">
-                
-            </div>
-        </fieldset>
-            
+        <div class="professionalhistory">
+            <h3>Resumo Profissional</h3>
+
+        </div>
+
         <!--INFORMAÇÕES ADICIONAIS-->
-        <fieldset>
-            <legend>Informações complementares</legend>
-            <div class="additional">
-                    <p><textarea name="item3" cols="50" rows="10"></textarea></p>
-            </div>
-        </fieldset>
-            
-            <footer class="submit">
-                <input type="submit" value="Enviar" id="submit" name="Enviar">
-            </footer>
-            
-        </form>
+        <div class="additional">
+            <h3>Informações complementares</h3>
+            <form method="POST" action="example.cgi">
+                <p><textarea name="item3" cols="50" rows="10"></textarea></p>
+                <p><input type="submit" value="Submit" id="example2"></p>
+            </form>
+        </div>
         </section>
+        
     </body>
 </html>
