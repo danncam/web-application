@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+        <title>Javascript Form Submit Example</title>
+        <!-- Include CSS File Here -->
+        <link rel="stylesheet" href="style.css"/>
+        <!-- Include JS File Here -->
+        <script src="script.js">
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="main">
+                <form id="form_id">
+                <h2>Preencha os campos abaixo</h2>
+                <label>Nome :</label>
+                <input type="text" id="name" placeholder="Nome" />
+                    
+                <label>Email :</label>
+                <input type="text" id="email" placeholder="E-mail" />
+                    
+                <input type="button" id="erase_id" value="Apagar" onclick="erasefields()"/>
+                <input type="button" id="login_id" value="Entrar" onclick="submitform()"/>
+                    
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

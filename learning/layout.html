@@ -3,34 +3,45 @@
     <head>
         <meta charset="utf-8">
         <title>Layout</title>
-        <link rel="stylesheet" href="estilo.css" type="text/css"/>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script src="script.js" type="text/javascript"></script>
     </head>
     <body>
-        <div id="container">
-            <div id="topo">
+        <main>
+            <header id="topo">
                 <div id="logo">
                 </div>
                 
-                <div id="menu">
+                <div nav>
                 </div>
-            </div>
+            </header>
             
-            <div id="banner">
+            <section id="banner">
             
-            </div>
+            </section>
             
-            <div id="conteudo">
+            <article>
                 <div class="box" id="box1">
+                    
+                    <!-- defina um id para o <form> -->
+                    <form action="#" id="form_id" method="post">
+                        
+                        <input type="text" placeholder="digite aqui" size=32px>
+                        <input type="submit" value="Enviar" id="submit" name="Enviar" onclick="getname()">
+                    </form>
                 </div>
                 <div class="box" id="box2">
+                    <p id="para1">Algum texto de exemplo</p><br>
+                    <button onclick="mudarCor('blue');">Azul</button>
+                    <button onclick="mudarCor('red');">Vermelho</button>
                 </div>
                 <div class="box" id="box3">
                 </div>
-            </div>
+            </article>
             
-            <div id="rodape">
+            <footer>
             
-            </div>
-        </div>
+            </footer>
+        </main>
     </body>
 </html>
