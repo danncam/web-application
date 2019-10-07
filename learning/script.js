@@ -5,11 +5,7 @@ function mudarCor(novaCor) {
 }
 
 function getname() {
-    var instr = document.getElementById("form_id").value;// Form submission
-    alert(instr);
-}
-
-function submitform() {
-    var usrlogin = document.getElementById("login_id");
+    var usrlogin = document.getElementById("login_id").value;
+    document.getElementById("hiddencontent").innerHTML = usrlogin; 
 }
 
