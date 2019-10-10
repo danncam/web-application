@@ -20,9 +20,17 @@ public class FirstServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String firstName = req.getParameter("fname");
 		String lastName = req.getParameter("lname");
-		String fullname = firstName + " " + lastName;
+		String fullname = firstName + "" + lastName;
+		
+		// print on body
+		//PrintWriter pw = resp.getWriter();
+		//pw.write("My name is " + fullname);
 		
 		RequestDispatcher rdisp = req.getRequestDispatcher("/outputfile.jsp");
+		
+		// send request object to outputfile.jsp
+		req.setAttribute("fname", firstName);
+		
 		rdisp.forward(req, resp);
 	}
 }
