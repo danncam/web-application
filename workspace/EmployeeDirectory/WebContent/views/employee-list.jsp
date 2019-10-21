@@ -4,13 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
 </head>
 <body>
-
 	<table>
-	
 		<tr>
 			<th>Name</th>
 			<th>Department</th>
@@ -21,12 +19,8 @@
 				<td>${employee.name}</td>
 				<td>${employee.dept}</td>
 				<td>${employee.dob}</td>
-			
 			</tr>
 		</c:forEach>
-	
-	
 	</table>
-
 </body>
 </html>

@@ -1,4 +1,5 @@
-package com.empl.entity;
+package com.entity;
+
 
 public class Employee {
 	//define the fields
@@ -35,5 +36,8 @@ public class Employee {
 	}
 	
 	//generate toString
-	
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", department=" + dept + "dob=" + dob + "]";
+	}
 }

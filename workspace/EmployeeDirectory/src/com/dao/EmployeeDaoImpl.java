@@ -1,4 +1,4 @@
-package com.empl.entity;
+package com.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,17 +6,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.empl.util.DBHelperUtil;
+import com.entity.Employee;
+import com.util.*;
 
-public class EmployeeDAOImpl implements EmployeeDAO{
+public class EmployeeDaoImpl implements EmployeeDao{
 	
 	Connection connection = null;
 	Statement statement = null;
 	ResultSet resultSet = null;
-
+	
 	@Override
 	public List<Employee> get() {
-		
 		// create the reference variables
 		List<Employee> list = null;
 		Employee employee = null;
@@ -40,7 +40,8 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 			while(resultSet.next()) {
 				employee = new Employee();
 				employee.setId(resultSet.getInt("id"));
-				employee.setName(resultSet.getString("department"));
+				employee.setName(resultSet.getString("name"));
+				employee.setDept(resultSet.getString("department"));
 				employee.setDob(resultSet.getString("dob"));
 				
 				// add object to the list
