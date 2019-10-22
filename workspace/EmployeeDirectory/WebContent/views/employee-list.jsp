@@ -14,7 +14,7 @@
 			<th>Department</th>
 			<th>Date of Birth</th>
 		</tr>
-		<c:forEach items="${list}" var="employee">
+		<c:forEach items = "${list}" var = "employee">
 			<tr>
 				<td>${employee.name}</td>
 				<td>${employee.dept}</td>

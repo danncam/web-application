@@ -21,18 +21,18 @@ public class EmployeeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	// create ref variables for DAO
-	EmployeeDao employeDao = null;
+	EmployeeDao employeeDao = null;
 	
 	// create constructor
 	public EmployeeController() {
-		employeDao = new EmployeeDaoImpl();
+		employeeDao = new EmployeeDaoImpl();
 
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// call dao method to get the list
-		List<Employee> list = employeDao.get();
+		List<Employee> list = employeeDao.get();
 		
 		// add employees to request object
 		request.setAttribute("list", list);

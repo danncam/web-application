@@ -4,13 +4,13 @@ package com.entity;
 public class Employee {
 	//define the fields
 	
-	private int id;
+	private Integer id;
 	private String name;
 	private String dob;
 	private String dept;
 	
 	//define setters and getters
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	public void setId(int id) {

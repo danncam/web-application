@@ -41,7 +41,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 				employee = new Employee();
 				employee.setId(resultSet.getInt("id"));
 				employee.setName(resultSet.getString("name"));
-				employee.setDept(resultSet.getString("department"));
+				employee.setDept(resultSet.getString("dept"));
 				employee.setDob(resultSet.getString("dob"));
 				
 				// add object to the list
