@@ -150,7 +150,11 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
       <Context docBase="00-jsp-servlets-mvc-database-application" path="/00-jsp-servlets-mvc-database-application" reloadable="true" source="org.eclipse.jst.jee.server:00-jsp-servlets-mvc-database-application"/>
-      <Context docBase="01-jsp-servlets-mvc-database-application" path="/01-jsp-servlets-mvc-database-application" reloadable="true" source="org.eclipse.jst.jee.server:01-jsp-servlets-mvc-database-application"/></Host>
+      <Context docBase="01-jsp-servlets-mvc-database-application" path="/01-jsp-servlets-mvc-database-application" reloadable="true" source="org.eclipse.jst.jee.server:01-jsp-servlets-mvc-database-application"/>
+      <Context docBase="Proj01" path="/Proj01" reloadable="true" source="org.eclipse.jst.jee.server:Proj01"/>
+      <Context docBase="jsp-servlets-mvc" path="/jsp-servlets-mvc" reloadable="true" source="org.eclipse.jst.jee.server:jsp-servlets-mvc"/>
+      
+      <Context docBase="sigaweb" path="/sigaweb" reloadable="true" source="org.eclipse.jst.jee.server:sigaweb"/></Host>
     </Engine>
   </Service>
 </Server>

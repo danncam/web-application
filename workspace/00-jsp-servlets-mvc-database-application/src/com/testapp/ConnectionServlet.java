@@ -47,11 +47,6 @@ public class ConnectionServlet extends HttpServlet {
 			Statement stmt = conn.createStatement();
 			ResultSet rset = stmt.executeQuery("use employeedirectory;");
 			
-			if(rset.next()) {
-				//pw.println(rset.
-			}
-			
-			
 			// close the connection
 			conn.close();
 			
