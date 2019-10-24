@@ -1,6 +1,7 @@
 package in.bushansirgur.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -84,8 +85,9 @@ public class EmployeeController extends HttpServlet {
 	}
 
 	private void listEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		PrintWriter pw = response.getWriter();
 		List<Employee> theList = employeeDAO.get();
+		pw.println(theList.toString());
 		
 		request.setAttribute("list", theList);
 		

@@ -1,5 +1,6 @@
 package in.bushansirgur.dao;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,6 +41,9 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 				list.add(employee);
 			}
 		}catch(SQLException e) {
+			e.printStackTrace();
+		}catch(NullPointerException e) {
+			
 			e.printStackTrace();
 		}
 		return list;
