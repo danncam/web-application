@@ -42,7 +42,7 @@
 					</div>
 				
 					<div class="form-group">
-					  	<input type = "text" class = "form-control" name = "pwrd" placeholder = "Senha" value = "${employee.department}"/>
+					  	<input type = "password" class = "form-control" name = "pwrd" placeholder = "Senha" value = "${employee.department}"/>
 					</div>
 				
 					<input type = "hidden" name = "id" value = "${employee.id}"/>
