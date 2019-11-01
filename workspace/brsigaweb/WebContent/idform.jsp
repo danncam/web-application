@@ -38,14 +38,12 @@
 				<form action = "${pageContext.request.contextPath}/Controller" method="POST">
 				
 					<div class = "form-group">
-						<input type = "text" class = "form-control" name = "name" placeholder = "E-mail" value = "${employee.name}"/>
+						<input type = "text" class = "form-control" name = "emailform" placeholder = "E-mail" value = "${user.emailid}"/>
 					</div>
 				
 					<div class="form-group">
-					  	<input type = "password" class = "form-control" name = "pwrd" placeholder = "Senha" value = "${employee.department}"/>
+					  	<input type = "password" class = "form-control" name = "pwrdform" placeholder = "Senha" value = "${user.pwd}"/>
 					</div>
-				
-					<input type = "hidden" name = "id" value = "${employee.id}"/>
 				
 					<button type = "submit" class = "btn btn-primary">Verificar</button>
 				</form>
