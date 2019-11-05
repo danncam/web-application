@@ -18,7 +18,6 @@ import java.sql.DatabaseMetaData;
 import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
 
 import br.sigaweb.util.*;
-import in.bushansirgur.entity.Employee;
 import br.sigaweb.dao.*;
 import br.sigaweb.entity.Curriculum;
 
@@ -31,12 +30,33 @@ public class Controller extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		String action = request.getParameter("action");
+		
+		switch(action) {
+		
+		case "SEARCH":
+			search(request, response);
+			break;
+			
+		case "EDIT":
+			edit(request, response);
+			break;
+			
+		case "DELETE":
+			delete(request, response);
+			break;
+			
+		default:
+			list(request, response);
+			break;
+			
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
+	
 	private void search(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		StdLogin usrlogin = new StdLogin();
@@ -53,7 +73,15 @@ public class Controller extends HttpServlet {
 		
 		dispatcher.forward(request, response);
 	}
-
+	
+	private void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+	
+	private void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+	
+	private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
 }
 
 

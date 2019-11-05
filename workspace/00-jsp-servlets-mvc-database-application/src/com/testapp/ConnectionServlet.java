@@ -46,6 +46,7 @@ public class ConnectionServlet extends HttpServlet {
 			String sql = "SELECT * FROM tbl_employee;";
 			Statement stmt = conn.createStatement();
 			ResultSet rset = stmt.executeQuery("use employeedirectory;");
+			stmt.executeQuery(sql);
 			
 			// close the connection
 			conn.close();
