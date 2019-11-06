@@ -1,10 +1,10 @@
-package in.bushansirgur.util;
+package com.sigaweb.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnectionUtil {
+public class DBHelper {
 	
 	//Define the database properties
 	private static final String URL = "jdbc:mysql://localhost:3306/employeedirectory?useTimezone=true&serverTimezone=UTC";

@@ -33,7 +33,7 @@ public class StdLogin {
 	abstract boolean update(Curriculum p);
 	*/
 	
-	List<StdLogin> getLogin() {
+	public List<StdLogin> getLoginList() {
 		List<StdLogin> list = null;
 		StdLogin stdusr = null;
 		try {
@@ -50,9 +50,9 @@ public class StdLogin {
 				stdusr.setPassword(resultSet.getString("PWDLOGIN"));
 				list.add(stdusr);
 			}
-		}catch(SQLException e) {
+		} catch(SQLException e) {
 			e.printStackTrace();
-		}catch(NullPointerException e) {
+		} catch(NullPointerException e) {
 			e.printStackTrace();
 		}
 		return list;

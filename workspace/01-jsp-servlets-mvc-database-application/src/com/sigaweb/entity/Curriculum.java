@@ -1,8 +1,6 @@
-package in.bushansirgur.entity;
+package com.sigaweb.entity;
 
-import java.sql.Date;
-
-public class Employee {
+public class Curriculum {
 	
 	//define the fields
 	private Integer id;

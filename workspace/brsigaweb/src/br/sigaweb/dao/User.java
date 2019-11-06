@@ -18,51 +18,15 @@ public class User extends StdLogin{
 	private Statement statement = null;
 	private PreparedStatement preparedStatement = null;
 	
-	public List<StdLogin> get() {
-		List<User> list = null;
-		User usrlogin = null;
-		
-		try {
-			
-			list = new ArrayList<User>();
-			String sql = "SELECT * FROM tbl_usr";
-			connection = DBHelper.openConnection();
-			statement = connection.createStatement();
-			resultSet = statement.executeQuery(sql);
-			while(resultSet.next()) {
-				usrlogin = new User();
-				usrlogin.setUid(resultSet.getInt("UID"));
-				usrlogin.setEmailid(resultSet.getString("EMAILID"));
-				usrlogin.setDepartment(resultSet.getString("department"));
-				usrlogin.setDob(resultSet.getString("dob"));
-				list.add(usrlogin);
-			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}catch(NullPointerException e) {
-			
-			e.printStackTrace();
-		}
-		return list;
-	}
-	
-
-	@Override
-	public Curriculum get(int id) {
-		return null;
-	}
-
-	@Override
 	public boolean save(Curriculum c) {
 		return false;
 	}
 
-	@Override
+
 	public boolean delete(int id) {
 		return false;
 	}
 
-	@Override
 	public boolean update(Curriculum c) {
 		return false;
 	}

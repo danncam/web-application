@@ -1,6 +1,5 @@
-package in.bushansirgur.dao;
+package com.sigaweb.dao;
 
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,10 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import in.bushansirgur.entity.Employee;
-import in.bushansirgur.util.DBConnectionUtil;
+import com.sigaweb.entity.Curriculum;
+import com.sigaweb.util.DBHelper;
 
-public class EmployeeDAOImpl implements EmployeeDAO {
+public class User implements StdLogin {
 	
 	Connection connection = null;
 	ResultSet resultSet = null;
@@ -20,20 +19,20 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	PreparedStatement preparedStatement = null;
 	
 	@Override
-	public List<Employee> get() {
+	public List<Curriculum> get() {
 		
-		List<Employee> list = null;
-		Employee employee = null;
+		List<Curriculum> list = null;
+		Curriculum employee = null;
 		
 		try {
 			
-			list = new ArrayList<Employee>();
+			list = new ArrayList<Curriculum>();
 			String sql = "SELECT * FROM tbl_employee";
-			connection = DBConnectionUtil.openConnection();
+			connection = DBHelper.openConnection();
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(sql);
 			while(resultSet.next()) {
-				employee = new Employee();
+				employee = new Curriculum();
 				employee.setId(resultSet.getInt("id"));
 				employee.setName(resultSet.getString("name"));
 				employee.setDepartment(resultSet.getString("department"));
@@ -50,33 +49,33 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public Employee get(int id) {
-		Employee employee = null;
+	public Curriculum get(int id) {
+		Curriculum curr = null;
 		try {
-			employee = new Employee();
+			curr = new Curriculum();
 			String sql = "SELECT * FROM tbl_employee where id="+id;
-			connection = DBConnectionUtil.openConnection();
+			connection = DBHelper.openConnection();
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(sql);
 			if(resultSet.next()) {
-				employee.setId(resultSet.getInt("id"));
-				employee.setName(resultSet.getString("name"));
-				employee.setDepartment(resultSet.getString("department"));
-				employee.setDob(resultSet.getString("dob"));
+				curr.setId(resultSet.getInt("id"));
+				curr.setName(resultSet.getString("name"));
+				curr.setDepartment(resultSet.getString("department"));
+				curr.setDob(resultSet.getString("dob"));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return employee;
+		return curr;
 	}
 
 	@Override
-	public boolean save(Employee e) {
+	public boolean save(Curriculum c) {
 		boolean flag = false;
 		try {
 			String sql = "INSERT INTO tbl_employee(name, department, dob)VALUES"
-					+ "('"+e.getName()+"', '"+e.getDepartment()+"', '"+e.getDob()+"')";
-			connection = DBConnectionUtil.openConnection();
+					+ "('"+c.getName()+"', '"+c.getDepartment()+"', '"+c.getDob()+"')";
+			connection = DBHelper.openConnection();
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.executeUpdate();
 			flag = true;
@@ -91,7 +90,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		boolean flag = false;
 		try {
 			String sql = "DELETE FROM tbl_employee where id="+id;
-			connection = DBConnectionUtil.openConnection();
+			connection = DBHelper.openConnection();
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.executeUpdate();
 			flag = true;
@@ -102,12 +101,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public boolean update(Employee employee) {
+	public boolean update(Curriculum c) {
 		boolean flag = false;
 		try {
-			String sql = "UPDATE tbl_employee SET name = '"+employee.getName()+"', "
-					+ "department = '"+employee.getDepartment()+"', dob = '"+employee.getDob()+"' where id="+employee.getId();
-			connection = DBConnectionUtil.openConnection();
+			String sql = "UPDATE tbl_employee SET name = '"+c.getName()+"', "
+					+ "department = '"+c.getDepartment()+"', dob = '"+c.getDob()+"' where id="+c.getId();
+			connection = DBHelper.openConnection();
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.executeUpdate();
 			flag = true;

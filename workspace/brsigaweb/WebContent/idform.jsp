@@ -49,7 +49,7 @@
 				</form>
 			</div>
 		</div>
-		<a href = "${pageContext.request.contextPath}/Controller?action=LIST">Voltar</a>
+		<a href = "${pageContext.request.contextPath}/Controller?action=SEARCH">Voltar</a>
 	</div>
 	</body>
 </html>

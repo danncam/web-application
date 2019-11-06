@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +25,9 @@ import br.sigaweb.entity.Curriculum;
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	
+	RequestDispatcher rdis;
+	
     public Controller() {
         super();
     }
@@ -64,14 +67,17 @@ public class Controller extends HttpServlet {
 		usrlogin.setEmail_ID(request.getParameter("EMAILID"));
 		
 		PrintWriter pw = response.getWriter();
-		List<Curriculum> usrl = User.get();
+		List<StdLogin> usrl = usrlogin.getLoginList();
+		for(StdLogin a : usrl) {
+			System.out.println(a.getUser_ID());
+		}
 		pw.println(usrl.toString());
 		
-		request.setAttribute("list", theList);
+		request.setAttribute("list", usrl);
 		
-		dispatcher = request.getRequestDispatcher("/views/employee-list.jsp");
+		rdis = request.getRequestDispatcher("/idform.jsp");
 		
-		dispatcher.forward(request, response);
+		rdis.forward(request, response);
 	}
 	
 	private void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
