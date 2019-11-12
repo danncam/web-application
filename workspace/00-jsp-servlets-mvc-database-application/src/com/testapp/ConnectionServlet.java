@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ConnectionServlet")
 public class ConnectionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	RequestDispatcher rdis;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// define fields
@@ -54,6 +57,10 @@ public class ConnectionServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		//rdis = request.getRequestDispatcher("/index.jsp");
+		
+		//rdis.forward(request, response);
 		
 	}
 
