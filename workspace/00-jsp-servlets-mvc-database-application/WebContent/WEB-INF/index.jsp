@@ -7,6 +7,11 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<p> oie </p>
+		<form action="processServlet" method="get">
+			<p>Enter first name:<input type="text" name="fname"/></p>
+			<p>Enter last name:<input type="text" name="lname"/></p><br>
+			<input type="submit" value="submit"/>
+			
+		</form>
 	</body>
 </html>

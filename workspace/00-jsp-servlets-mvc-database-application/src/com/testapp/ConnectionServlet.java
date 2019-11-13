@@ -21,10 +21,19 @@ import javax.servlet.http.HttpServletResponse;
 public class ConnectionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		super.service(req, resp);
+		PrintWriter out = resp.getWriter();
+		out.println("oui delisia");
+		RequestDispatcher view = req.getRequestDispatcher("/index.jsp");
+		view.forward(req, resp);
+	}
+	/*
 	RequestDispatcher rdis;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// define fields
+		 define fields
 		String username = "root";
 		String password = "1234";
 		String jdbcDriver = "jdbc:mysql://localhost:3306/employeedirectory";
@@ -67,5 +76,5 @@ public class ConnectionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		doGet(request, response);
-	}
+	}*/
 }
