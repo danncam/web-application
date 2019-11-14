@@ -20,14 +20,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ConnectionServlet")
 public class ConnectionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	//private static final RequestDispatcher view;
+	
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		super.service(req, resp);
-		PrintWriter out = resp.getWriter();
-		out.println("oui delisia");
-		RequestDispatcher view = req.getRequestDispatcher("/index.jsp");
-		view.forward(req, resp);
+		//view = req.getRequestDispatcher("index.jsp").forward(req, resp);
+
 	}
 	/*
 	RequestDispatcher rdis;
