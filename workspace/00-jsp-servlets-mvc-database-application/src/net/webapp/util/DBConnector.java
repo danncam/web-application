@@ -84,6 +84,10 @@ public class DBConnector {
 		return output;
 	}
 	
+	public static void close() throws SQLException {
+		connection.close();
+	}
+	
 	public static String getDataBaseName() {
 		return DATABASENAME;
 	}

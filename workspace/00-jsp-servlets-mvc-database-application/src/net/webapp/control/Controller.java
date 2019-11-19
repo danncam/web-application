@@ -39,7 +39,7 @@ public class Controller extends HttpServlet {
 	protected void getDataBaseConnection(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		try {
 			DBConnector.openConnection();
-			response.getWriter().append("Establishing a Database Connection at: ").append(request.getContextPath()).println();
+			response.getWriter().append("Establishing a Database Connection at : ").append(request.getContextPath()).println();
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 			response.getWriter().append("Executing method does not have access to the definition of the specified class, field, method or constructor").println();
@@ -60,14 +60,21 @@ public class Controller extends HttpServlet {
 				response.getWriter().append("Connected at : ").append(DBConnector.getDataBaseName()).println();
 			} else {
 	    		DBConnector.newDataBase();
-	    		response.getWriter().append("DataBase created successfully : ").append(DBConnector.getDataBaseName()).println();
+	    		System.out.println("DataBase created successfully : "+DBConnector.getDataBaseName());
 	    		DBConnector.useDB();
 	    		response.getWriter().append("Connected at : ").append(DBConnector.getDataBaseName()).println();
 			}
 			
 		} catch (MySQLSyntaxErrorException e) {
-				e.printStackTrace();
-    	} 
+			System.out.println("Database doesn't exist : "+DBConnector.getDataBaseName());
+			e.printStackTrace();
+    	} catch (NullPointerException e) {
+    		response.getWriter().append("Connection didn't response. Possibly closed : ").append(DBConnector.getDataBaseName()).println();
+			e.printStackTrace();
+		} catch (SQLException e) {
+			response.getWriter().append("Cannot establish connection with the database : ").append(DBConnector.getDataBaseName()).println();
+			e.printStackTrace();
+		} 
 				
 	}
 

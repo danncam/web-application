@@ -151,7 +151,7 @@
 
       <Context docBase="00-jsp-servlets-mvc-database-application" path="/00-jsp-servlets-mvc-database-application" reloadable="true" source="org.eclipse.jst.jee.server:00-jsp-servlets-mvc-database-application"/>
       <Context docBase="01-jsp-servlets-mvc-database-application" path="/01-jsp-servlets-mvc-database-application" reloadable="true" source="org.eclipse.jst.jee.server:01-jsp-servlets-mvc-database-application"/>
-      <Context docBase="jsp-servlets-mvc" path="/jsp-servlets-mvc" reloadable="true" source="org.eclipse.jst.jee.server:jsp-servlets-mvc"/></Host>
+      <Context docBase="jsp-servlets-mvc" path="/jsp-servlets-mvc" reloadable="true" source="org.eclipse.jst.jee.server:jsp-servlets-mvc"/><Context docBase="02-jsp-servlets-mvc-database-application" path="/02-jsp-servlets-mvc-database-application" reloadable="true" source="org.eclipse.jst.jee.server:02-jsp-servlets-mvc-database-application"/></Host>
       <Context docBase="proj01" path="/proj01" reloadable="true" source="org.eclipse.jst.jee.server:proj01"/>
       <Context docBase="brsigaweb" path="/brsigaweb" reloadable="true" source="org.eclipse.jst.jee.server:brsigaweb"/>
     </Engine>
