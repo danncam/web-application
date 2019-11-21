@@ -39,12 +39,18 @@ public class DBConnector {
 	
 	public static void newDataBase() {
 		createStatement();
-    	execute("create database " + DBConnector.getDataBaseName() + " if not exists;");
+    	execute("create database if not exists " + DBConnector.getDataBaseName() + ";");
 	}
 	
 	public static void useDB() throws MySQLSyntaxErrorException{
 		createStatement();
-		execute("use " +DATABASENAME+";");
+		execute("use " +DBConnector.getDataBaseName() + ";");
+	}
+	
+	public static void dropData() {
+		createStatement();
+		executeUpdate("drop database " + getDataBaseName());
+		close();
 	}
 	
 	public static void createStatement() {
@@ -84,8 +90,12 @@ public class DBConnector {
 		return output;
 	}
 	
-	public static void close() throws SQLException {
-		connection.close();
+	public static void close() {
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static String getDataBaseName() {
@@ -96,7 +106,7 @@ public class DBConnector {
 		return USERNAME;
 	}
 	
-	public static boolean isConnected() {
-		return connection != null;
+	public static boolean isConnected() throws SQLException {
+		return connection != null && !connection.isClosed() && connection.getMetaData().getURL().contains(DATABASENAME);
 	}
 }

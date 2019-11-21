@@ -16,7 +16,7 @@ import net.webapp.util.DBConnector;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet({"/Controller"})
+@WebServlet({"/Controller", "/reset"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,10 +26,20 @@ public class Controller extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		getDataBaseConnection(request, response);
-    	
-    	
-    	//request.getRequestDispatcher("/home.jsp").forward(request, response);
+		//get URL
+		String url = request.getRequestURL().toString();
+		System.out.println(url);
+		switch(url) {
+			case "/reset":
+				getDataBaseConnection(request, response);
+				resetData(request, response);
+				DBConnector.close();
+				request.getRequestDispatcher("/home.jsp").forward(request, response);
+				break;
+			default:
+				System.out.println("default");
+				break;
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,7 +70,7 @@ public class Controller extends HttpServlet {
 				response.getWriter().append("Connected at : ").append(DBConnector.getDataBaseName()).println();
 			} else {
 	    		DBConnector.newDataBase();
-	    		System.out.println("DataBase created successfully : "+DBConnector.getDataBaseName());
+	    		response.getWriter().append("DataBase created successfully : "+DBConnector.getDataBaseName());
 	    		DBConnector.useDB();
 	    		response.getWriter().append("Connected at : ").append(DBConnector.getDataBaseName()).println();
 			}
@@ -78,4 +88,7 @@ public class Controller extends HttpServlet {
 				
 	}
 
+	protected void resetData(HttpServletRequest request, HttpServletResponse response) {
+		
+	}
 }
