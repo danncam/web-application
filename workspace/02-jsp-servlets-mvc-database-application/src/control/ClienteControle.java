@@ -39,9 +39,9 @@ public class ClienteControle extends HttpServlet {
 		System.out.println(url);
 		if(url.equals("/cadcliente")){
 			cadastrar(request,response);
-		}else if(url.equalsIgnoreCase("/conscliente")){
+		} else if(url.equalsIgnoreCase("/conscliente")){
 			consultar(request, response);
-		}else if(url.equalsIgnoreCase("/listarclientes")){
+		} else if(url.equalsIgnoreCase("/listarclientes")){
 			listar(request, response);
 		}
 	}

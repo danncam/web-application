@@ -3,15 +3,31 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
-		<title>Insert title here</title>
-	</head>
-	<body>
-		<form action="processServlet" method="get">
-			<p>Enter first name:<input type="text" name="fname"/></p>
-			<p>Enter last name:<input type="text" name="lname"/></p><br>
-			<input type="submit" value="submit"/>
-			
-		</form>
-	</body>
+	        <meta charset="utf-8">
+	        <link href="res/style.css" rel="stylesheet" type="text/css" media="all">
+	        <script src="res/script.js"></script>
+	        <title>Siga Carreira</title>
+	    </head>
+	
+	    <body>
+	
+	        <!--Top content-->
+	        <header class="top-container">
+	            <img src="res/logo.png">
+	            <img src="res/name.png">
+	        </header>
+	        
+	        <!--Menu navigation-->
+	        <nav class="sticky">
+	            <ul>
+	                <li><a href="index.html">HOME</a></li>
+	                <li><a href="info.html">INFORMAÇÕES</a></li>
+	                <li><a href="form.html">CURRÍCULO</a></li>
+	                <li><a href="login.html">LOGIN</a></li>
+	            </ul>
+	        </nav>
+	        
+	        
+		</body>
+
 </html>

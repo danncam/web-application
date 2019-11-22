@@ -3,6 +3,7 @@ package net.webapp.control;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +20,7 @@ import net.webapp.util.DBConnector;
 @WebServlet({"/Controller", "/reset"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	RequestDispatcher dispatcher = null;
 
     public Controller() {
         super();
@@ -26,20 +28,48 @@ public class Controller extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String action = request.getParameter("action");
+				
+				if(action == null) {
+					action = "LIST";
+				}
+				
+				switch(action) {
+					
+					case "LIST":
+						list(request, response);
+						break;
+						
+					case "EDIT":
+						getSingleEmployee(request, response);
+						break;
+						
+					case "DELETE":
+						delete(request, response);
+						break;
+						
+					default:
+						list(request, response);
+						break;
+						
+				}
+				
 		//get URL
-		String url = request.getRequestURL().toString();
+		String url = request.getRequestURI().toString();
 		System.out.println(url);
 		switch(url) {
 			case "/reset":
 				getDataBaseConnection(request, response);
 				resetData(request, response);
 				DBConnector.close();
-				request.getRequestDispatcher("/home.jsp").forward(request, response);
+				
 				break;
 			default:
 				System.out.println("default");
 				break;
 		}
+		dispatcher = request.getRequestDispatcher("/home.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
