@@ -26,8 +26,17 @@
 	                <li><a href="login.html">LOGIN</a></li>
 	            </ul>
 	        </nav>
-	        
-	        
+			<form action="${pageContext.request.contextPath}/LoginServlet">
+			
+						Please enter your username 		
+						<input type="text" name="un"/><br>		
+					
+						Please enter your password
+						<input type="text" name="pw"/>
+						
+						<input type="submit" value="submit">			
+					
+					</form>
 		</body>
 
 </html>
