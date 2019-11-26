@@ -99,7 +99,7 @@ public class Controller extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("oi");
+		System.out.println("controller.dopost");
 	}
 	
 	protected void getDataBaseConnection(HttpServletRequest request, HttpServletResponse response) throws IOException {

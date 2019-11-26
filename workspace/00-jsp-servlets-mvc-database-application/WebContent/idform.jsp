@@ -26,9 +26,9 @@
             </ul>
         </nav> 
         
-		<form action="Controller" method="post">
-			<p>Usuário: <input type="text" name="lusr"/></p>
-			<p>Senha: <input type="password" name="lpsw"/></p><br>
+		<form action="${pageContext.request.contextPath}/LoginServlet" method="get">
+			<p>Usuário: <input type="text" name="un"/></p>
+			<p>Senha: <input type="password" name="pw"/></p><br>
 			<input type="submit" value="submit"/>
 				
 		</form>

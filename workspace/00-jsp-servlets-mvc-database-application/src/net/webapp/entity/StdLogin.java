@@ -2,6 +2,7 @@ package net.webapp.entity;
 
 public class StdLogin {
 
+	private int uid;
 	private String username;
 	private String password;
 	private String firstName;
@@ -47,6 +48,13 @@ public class StdLogin {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}	
+	}
 
+	public int getUserID() {
+		return uid;
+	}
+
+	public void setUserID(int uid) {
+		this.uid = uid;
+	}
 }
