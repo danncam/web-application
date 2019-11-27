@@ -4,33 +4,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
-		<title>Siga Carreira</title>
-		<link href="res/style.css" rel="stylesheet" type="text/css" media="all">
-	</head>
-	
+         <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
+         <title>Entrar</title>
+         <jsp:include page="header.jsp"></jsp:include>
+    </head>
 	<body>
-        <!--Top content-->
-        <header class="top-container">
-            <img src="res/logo.png">
-            <img src="res/name.png">
-        </header>
-        
-        <!--Menu navigation-->
-        <nav class="sticky">
-            <ul>
-                <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>
-                <li><a href="info.html">INFORMAÇÕES</a></li>
-                <li><a href="form.html">CURRÍCULO</a></li>
-                <li><a href="${pageContext.request.contextPath}/idform.jsp">LOGIN</a></li>
-            </ul>
-        </nav> 
-        
-		<form action="${pageContext.request.contextPath}/LoginServlet" method="get">
+		<form class="loginform" action="${pageContext.request.contextPath}/LoginServlet" method="get">
 			<p>Usuário: <input type="text" name="un"/></p>
 			<p>Senha: <input type="password" name="pw"/></p><br>
-			<input type="submit" value="submit"/>
-				
+			<input type="submit" value="Entrar"/>
 		</form>
+		<button onclick="window.location.href = '${pageContext.request.contextPath}/newreg.jsp'">Cadastrar</button>
 	</body>
 </html>

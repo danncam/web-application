@@ -7,16 +7,15 @@ import java.sql.Statement;
 import net.webapp.util.ConnectionManager;
 import static net.webapp.util.Provider.*;
 
-public class UserDAO 	
-{
+public class UserDAO {
+	
    static Connection currentCon = null;
    static ResultSet rs = null;  
+   static Statement stmt = null; 
+   static int outputUpdate;
 	
    public static StdLogin login(StdLogin bean) {
-	
-      //preparando objetos para a conexão
-      Statement stmt = null;    
-	
+
       String username = bean.getUsername();
       String password = bean.getPassword();
 	    
@@ -27,93 +26,79 @@ public class UserDAO
                      + password
                      + "'";
 
-   // "System.out.println" prints in the console; Normally used to trace the process
-   //System.out.println("Your user name is " + username);          
-   //System.out.println("Your password is " + password);
-   //System.out.println("Query: "+searchQuery);
-	    
-	try {
-		//conectando a BD 
-		currentCon = ConnectionManager.getConnection();
-		stmt = currentCon.createStatement();
-		rs = stmt.executeQuery(searchQuery);	        
-		boolean more = rs.next();
+      try {
+    	  currentCon = ConnectionManager.getConnection();
+    	  stmt = currentCon.createStatement();
+    	  rs = stmt.executeQuery(searchQuery);	        
+    	  boolean more = rs.next();
 	       
-		// se o usuário não existe, flag more muda para falso
-			if (!more) {
-				System.out.println("Sorry, you are not a registered user! Please sign up first");
-				bean.setValid(false);
-			} else {
-				int uid = rs.getInt("UID");
-				searchQuery =
+    	  if (!more) {
+    		  System.out.println("Sorry, you are not a registered user! Please sign up first");
+    		  bean.setValid(false);
+    	  } else {
+    		  int uid = rs.getInt("UID");
+    		  searchQuery =
 			            "select * from REGISTER where UID = " + uid + ";";
-				rs = stmt.executeQuery(searchQuery);
+    		  rs = stmt.executeQuery(searchQuery);
 				
-				String firstName = rs.getString("NAME");
+    		  String firstName = rs.getString("NAME");
 		     	
-				System.out.println("Welcome " + firstName);
-				bean.setFirstName(firstName);
-				bean.setValid(true);
-			}
+    		  bean.setValid(true);
+    	  }
 	
-		} catch (NullPointerException ex) {
-			newDataBase();
-			currentCon = ConnectionManager.getConnection();
+      } catch (NullPointerException ex) {
+    	  newDataBase();
+    	  currentCon = ConnectionManager.getConnection();
 			
-		} catch (SQLException ex) {
-			System.out.println("Log In failed: An Exception has occurred! " + ex);
-		} 
-	    
-   //some exception handling
-   finally {
-      if (rs != null)	{
-         try {
-            rs.close();
-         } catch (Exception e) {}
-            rs = null;
-         }
-	
-      if (stmt != null) {
-         try {
-            stmt.close();
-         } catch (Exception e) {}
-            stmt = null;
-         }
-	
-      if (currentCon != null) {
-         try {
-            currentCon.close();
-         } catch (Exception e) {
-         }
-
-         currentCon = null;
+      } catch (SQLException ex) {
+    	  System.out.println("Log In failed: An Exception has occurred! " + ex);
+			
+      } finally {
+    	  exceptionHandling();
       }
-   }
 
    return bean;
 	
    }	
    
-   public static StdLogin newUser(StdLogin bean) {
-	 //preparando objetos para a conexão
-	      Statement stmt = null;    
-		
-	      String username = bean.getUsername();
-	      String password = bean.getPassword();
-		  
-	      String searchQuery = "select * from USERS where USRNAME = " + username;
-	      try {
-	    	  	currentCon = ConnectionManager.getConnection();
-	  			stmt = currentCon.createStatement();
-	  			rs = stmt.executeQuery(searchQuery);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+   public static User newUser(StdLogin bean) {
 
-	      String updateDB;
+	   User usr = null;
+	   Statement stmt = null; 
 	   
-	   return bean;
+	   String username = bean.getUsername();
+	   String searchQuery = "select USRNAME from USERS where USRNAME = \"" + username +"\"";
+	   try {
+		   
+		   currentCon = ConnectionManager.getConnection();
+		   stmt = currentCon.createStatement();
+		   rs = stmt.executeQuery(searchQuery);
+		   
+		   if(!rs.next()) {
+			   
+			   String password = bean.getPassword();
+			   String insertValues = "insert into USERS values ("
+			   		+ "0,"
+					+ "\"" + username + "\","
+					+ "\"" + password + "\");";
+			   // Inserir na tabela USERS
+			   outputUpdate = stmt.executeUpdate(insertValues);
+			   
+			   // Inicializar objeto Registro
+			   usr = new User(bean);
+			   
+			   
+		   } else {
+			   System.out.println("Já existe usuário registrado como " + bean.getUsername());
+		   }
+	   } catch (SQLException e) {
+		   System.out.println(outputUpdate);
+		   e.printStackTrace();
+	   } finally {
+		   exceptionHandling();
+	   }
+
+	   return usr;
    }
    
    public static void newDataBase() {
@@ -142,4 +127,28 @@ public class UserDAO
 		}
 		System.out.println("Base de Dados criada");
 	}
+   
+   protected static void exceptionHandling() {
+	   if (rs != null)	{
+			try {
+				rs.close();
+			} catch (Exception e) {}
+				rs = null;
+			}
+
+	   if (stmt != null) {
+			try {
+				stmt.close();
+			} catch (Exception e) {}
+				stmt = null;
+			}
+
+		if (currentCon != null) {
+			try {
+				currentCon.close();
+			} catch (Exception e) {
+				currentCon = null;
+			}
+		}
+   }
 }

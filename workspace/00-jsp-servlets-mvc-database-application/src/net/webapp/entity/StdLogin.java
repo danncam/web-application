@@ -2,12 +2,10 @@ package net.webapp.entity;
 
 public class StdLogin {
 
-	private int uid;
-	private String username;
-	private String password;
-	private String firstName;
-    private String lastName;
-	private boolean valid;
+	protected int uid;
+	protected String username;
+	protected String password;
+	protected boolean valid;
 	
 	public void setUserName(String username) {
 		this.username = username;
@@ -32,22 +30,6 @@ public class StdLogin {
 	
 	public void setValid(boolean value) {
         valid = value;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 
 	public int getUserID() {

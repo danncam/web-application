@@ -1,5 +1,6 @@
 package net.webapp.control;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.webapp.entity.StdLogin;
+import net.webapp.entity.User;
 import net.webapp.entity.UserDAO;
 
   /**
@@ -36,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("currentSessionUser", user); 
 				response.sendRedirect("userLogged.jsp"); //logged-in page      		
 			} else {
-			  response.sendRedirect("unauth.jsp"); //error page 
+			  response.sendRedirect("/newreg.jsp"); //error page 
 			}
 		} catch (Throwable theException) {
 			System.out.println(theException); 
@@ -45,11 +47,17 @@ public class LoginServlet extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	           throws ServletException, java.io.IOException {
-		StdLogin user = new StdLogin();
-		user.setUserName(request.getParameter("un"));
-		user.setPassword(request.getParameter("pw"));
 		
-		user = UserDAO.newUser(user);
-		System.out.println(user.getUsername());
+		StdLogin stduser = new StdLogin();
+		User register;
+		
+		stduser.setUserName(request.getParameter("un"));
+		stduser.setPassword(request.getParameter("pw"));
+		
+		register = UserDAO.newUser(stduser);
+
+		RequestDispatcher rd = request.getRequestDispatcher("/fullform.jsp");
+		rd.forward(request,response);
+		
 	}
 }
