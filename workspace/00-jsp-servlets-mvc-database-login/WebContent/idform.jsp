@@ -6,7 +6,7 @@
 	<head>
          <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
          <title>Entrar</title>
-         <link rel="stylesheet" href="layout.css" type="text/css"/>
+         
          <jsp:include page="header.html"></jsp:include>
     </head>
 	<body>
@@ -16,22 +16,21 @@
 		<fieldset>
 	    	<legend>Acesso</legend>
 
-	    	<div class="form-group">
-	      		<label for="exampleInputEmail1">Usuلrio</label>
-	      		<input type="email" class="form-control" id="exampleInputEmail1" name="un" aria-describedby="emailHelp" placeholder="Username">
-	      	<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-	    	</div>
+			<div class="form-group">
+			  	<label class="col-form-label" for="inputDefault">Usuلrio</label>
+			  	<input type="text" class="form-control" id="inputDefault" name="un">
+			</div>
 	    	<div class="form-group">
 	      		<label for="exampleInputPassword1">Senha</label>
-	      		<input type="password" class="form-control" id="exampleInputPassword1" name="pw" placeholder="Password">
+	      		<input type="password" class="form-control" id="exampleInputPassword1" name="pw">
 	    	</div>
 	    
-	    	<button type="submit" onclick="window.location.href = '${pageContext.request.contextPath}/newreg.jsp'" class="btn btn-primary">Cadastrar</button>
+	    	<button type="submit" class="btn btn-primary">Acessar</button>
 	  </fieldset>
 	</form>
 	</div>
 	</div>
 	</body>
 </html>
-
+<!-- onclick="window.location.href = '${pageContext.request.contextPath}/newreg.jsp'" -->
 
