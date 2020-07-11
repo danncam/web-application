@@ -150,7 +150,7 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
 
-      <Context docBase="00-jsp-servlets-mvc-database-application" path="/00-jsp-servlets-mvc-database-application" reloadable="true" source="org.eclipse.jst.jee.server:00-jsp-servlets-mvc-database-application"/><Context docBase="01-jsp-servlets-mvc-database-access" path="/01-jsp-servlets-mvc-database-access" reloadable="true" source="org.eclipse.jst.jee.server:01-jsp-servlets-mvc-database-access"/><Context docBase="damp" path="/damp" reloadable="true" source="org.eclipse.jst.jee.server:damp"/></Host>
+</Host>
     </Engine>
   </Service>
 </Server>
